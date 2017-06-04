@@ -1,0 +1,419 @@
+<header class="site-header">
+  <div class="site-header-content">
+    <h1>Modern CSS Bootcamp</h1>
+  </div>
+</header>
+
+<div class="site-content">
+
+<div class="section">
+  <h2>Recapping the basics</h2>
+  <h3>Element selectors</h3>
+  <pre>
+body {
+  margin: 30px;
+  font-size: 18px;
+}
+  </pre>
+    <h3>Class and ID selectors</h3>
+  <pre>
+.example {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+#id-example {
+  font-style: italic;
+}
+  </pre>
+  <p class="example">I have a class called 'test'.</p>
+  <p id="id-example" class="example">I have a class called 'test' and an id of 'example'.</p>
+
+  <h3>Properties</h3>
+  <p>For help remebering properties, check out <a href="https://github.com/jenofdoom/css-cheatsheet" target="_blank" rel="noopener noreferrer">this CSS cheatsheet</a> or the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank" rel="noopener noreferrer">full CSS reference at the Mozilla Developer Network</a>.</p>
+</div>
+
+<div class="section">
+  <h2>Web fonts</h2>
+  <p>Using only fonts that you know a user has installed on their computer is quite limiting.</p>
+  <p>Web fonts let us serve font files over the internet, either by hosting it on our own website, or by using a third party service.</p>
+  <p>We're going to use a third party service, <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google Fonts</a>, to provide the <a href="https://fonts.google.com/specimen/Raleway" target="_blank" rel="noopener noreferrer">Raleway</a> font so we can use it.</p>
+  <p>Unless we're only using a webfont for some special purpose like headings only, we usually want to get at least four versions of the font so we can cover all the basics:</p>
+  <ul>
+    <li>regular (400 weight)</li>
+    <li><i>regular italic (400 weight)</i></li>
+    <li><b>bold (700 weight)</b></li>
+    <li><b><i>bold italic (700 weight)</i></b></li>
+  </ul>
+  <p>If we followed Google's instructions to get the font, it would tell us to add a script tag to the head of the HTML:</p>
+  <pre>
+&lt;link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet"&gt;
+  </pre>
+  <p>Because we are using Codepen we need to do something a bit different:</p>
+  <ol>
+    <li>Hit the setting button in the top right or the header</li>
+    <li>Go to the CSS setting tab (just under where it says Pen Settings)</li>
+    <li>In the Add External CSS section, paste in <code>https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i</code></li>
+    <li>Hit the green Save & Close button.</li>
+  </ol>
+  <p>The font is now available for use, we just need to start using it (the bits in italics are things your should already have written)!</p>
+  <pre>
+<i>body {
+  margin: 30px;</i>
+  font-family: 'Raleway', sans-serif;
+  <i>font-size: 20px;
+}</i>
+  </pre>
+</div>
+
+<div class="section">
+  <h2>SASS</h2>
+  <p><a href="http://sass-lang.com/" target="_blank" rel="noopener noreferrer">SASS</a> stands for Syntactically Awesome Style Sheets and it is one of several <i>CSS preprocessors</i>, with <a href="http://lesscss.org/" target="_blank" rel="noopener noreferrer">less</a> being another common option. SASS uses a file format called <i>.scss</i> that needs special tooling to be transformed into regular CSS that a browser can use.</p>
+  <h4>Pros of using a CSS preprocesor</h4>
+  <ul>
+    <li>Advanced CSS features without having to wait for browser adoption</li>
+    <li>Variables!</li>
+    <li>Better file imports and structure</li>
+    <li>Programming constructs like functions and loops</li>
+    <li>The ability to use extra plugins like <a href="https://github.com/postcss/autoprefixer#readme" target="_blank" rel="noopener noreferrer">autoprefixer</a></li>
+  </ul>
+  <h4>Cons of using a CSS preprocesor</h4>
+  <ul>
+    <li>We have to use a compiler to transform our <i>scss</i> into normal CSS</li>
+    <li>Some extra things to learn (but it's not hard)</li>
+    <li>There are a few different preprocessors - did we pick the right one?</li>
+  </ul>
+  <p>Fortunately, Codepen has a built in SCSS compiler which is <b>already set up</b> so we don't need to do anything extra today.</p>
+  <p>If, later on, you're building a site using a regular code editor, you'll need to think about what compiler to use - there are a number of <a href="http://sass-lang.com/install" target="_blank" rel="noopener noreferrer">programs with a graphical interface</a>, or you can use a command line tool like <a href="https://stackoverflow.com/a/31448585/160648" target="_blank" rel="noopener noreferrer">node-sass</a> <i>(I don't recommend using the ruby gem that the SASS webpage tells you about unless you're working on a Ruby based project)</i>.
+  <h3>Variables</h3>
+  <p>Variables let us set up a value once and then use it multiple times throughout our rules. This makes it incredibly quick to change e.g. your brand colour and have it reflected throughout the site immediately.</p>
+  <p>Often, you'd set up your variables in their own dedicated file where it's easy to find them, but as we just have one file here, we'll put our variables set up at the very top of the file.</p>
+  <pre>
+$brand-color: #E6463C;
+$border-color: lighten($brand-color, 20%);
+  </pre>
+  <p>Notice that we can link different variables to each other, and even use functions like <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#lighten-instance_method" target="_blank" rel="noopener noreferrer">lighten</a> or darken on them. Now we can use our variables elsewhere.<p>
+  <pre>
+.section {
+  border-bottom: 1px solid $border-color;
+}
+
+a,
+a:visited {
+  color: $brand-color;
+}
+  </pre>
+
+  <h3>Nesting</h3>
+  <p>Nesting of rules saves us from having to do a bunch of repetitive typing, and helps to ensure that we group together related rules.</p>
+
+  <p class="example">
+    I have a class of 'example' and I <span class="nested">contain a span element with a class of 'nested'</span>.
+  </p>
+
+  <p>If we want to style the element that's inside '.example' but <b>not</b> style any other elements that have '.nested' (like <i class="nested">this one</i>), then I'd have to write a rule in normal css that looked like <code>.example .nested</code>.</p>
+
+  <p>SASS lets us write it more efficiently into our existing rule for '.example' with nesting.</p>
+
+  <pre>
+<i>.example {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px 10px;</i>
+
+  .nested {
+    color: $brand-color;
+  }
+<i>}</i>
+  </pre>
+
+  <p>You can nest something within a nested set of rules - but it's not a good idea to nest <i>too</i> deeply for performance reasons.</p>
+
+  <p>Another important feature of nesting is that you can use it to style different variants of the same element or class using the special <a href="https://css-tricks.com/the-sass-ampersand/" target="_blank" rel="noopener noreferrer">&amp;</a> parent selector.</p>
+
+  <pre>
+<i>a,
+a:visited {
+   color: $brand-color;</i>
+   text-decoration: none;
+
+   &amp;:hover {
+     text-decoration: underline;
+   }
+<i>}</i>
+  </pre>
+
+  <p>That will compile to <code>a:hover</code> and <code>a:visited:hover</code> - if we hadn't used the &amp; it would have been <code>a :hover</code> which doesn't work.</p>
+
+  <h3>Other SASS functionality</h3>
+  <p>We've covered two of the most common and powerful ways of using SASS, but it has some other neat tricks up its sleeve that sadly we don't have time to cover today. Here are some links to some other key bits of functionality so you can have a look later:</p>
+  <ul>
+    <li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#partials" target="_blank" rel="noopener noreferrer">Partial imports</a></li>
+    <li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#extend" target="_blank" rel="noopener noreferrer">@extend</a></li>
+    <li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#mixins" target="_blank" rel="noopener noreferrer">@mixin</a></li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Responsive “mobile first” layouts</h2>
+  <p>We can use CSS to make sure that our page displays properly both on a mobile phone and also on a desktop computer or laptop (and everything in between).</p>
+  <p>There are a few techniques we can use, and because the majority of web browsers nowadays are mobile phones, we should focus on making that core experience work well <i>first</i> and then <i>enhancing</i> that experience for larger screens. This is called <b>mobile first</b> design.</p>
+  <h3>Breakpoints and media queries</h3>
+  <p>The 18px body font size we've set will look too large on mobile. We can use a <b>media query</b> to conditionaly apply different styles depending on how large the <i>viewport</i> (the visible area of the page) is.</p>
+  <pre>
+<i>body {
+  margin: 30px;
+  font-family: 'Raleway', sans-serif;</i>
+
+  @media only screen and (min-width: 700px) {
+    font-size: 18px;
+  }
+<i>}</i>
+  </pre>
+  <p>In doing this, we have set up a <i>breakpoint</i> at 700px wide. We could set up a bunch of different media queries with different values: you can use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank" rel="noopener noreferrer">media queries</a> to detect the screen being smaller than a width, larger than a width, between two sizes, taller or shorter, whether it's a screen at all (or a printed page), and screen resolutions.</p>
+  <p>We can use media queries to change styling, or even to totally hide elements. We probably want to have consistent breakpoints to use throughout our styling - we can use SASS to store the media query in a variable for reuse:</p>
+  <pre>
+<i>$border-color: lighten($brand-color, 20%);</i>
+$larger-screens: 'only screen and (min-width: 700px)';
+  </pre>
+  <pre>
+<i>body {
+  margin: 30px;
+  font-family: 'Raleway', sans-serif;</i>
+
+  @media #{$larger-screens} {<i>
+    font-size: 18px;
+  }
+}</i>
+  </pre>
+  <p>Now we can use that in multiple places.</p>
+  <pre>
+h1 {
+  text-align: center;
+  font-size: 42px;
+
+  @media  #{$larger-screens} {
+    font-size: 52px;
+    text-align: left;
+  }
+}
+  </pre>
+  <h3>Default HTML works pretty well by itself</h3>
+  <p>You'll notice that the minimally unstyled page works fairly well in a narrow viewport. However we do have a horizontal scrollbar appearing because some of our content is too wide to fit.</p>
+ <img src="https://raw.githubusercontent.com/jenofdoom/js-build-pipelines-training/master/webpack-example/src/assets/img/banks-peninsula.jpg">
+  <p>We can fix this by setting a <b>max-width</b> for these elements, and be giving the individual elements a scroll bar if it's really neccessary.</p>
+  <pre>
+img,
+pre,
+code,
+table {
+  max-width: 100%;
+  overflow: auto;
+}
+
+code {
+  display: inline-block;
+}
+  </pre>
+  <h3>Creating a centered column on larger screens</h3>
+  <p>A common page layout is to have a centered column with a gutter on each side rather than letting everything use the full width of a page on a larger screen.</p>
+  <p>We can set this up by setting a <b>max-width</b> on a container that wraps all the content, and then using a special <b>auto</b> value in the margin settings to get the centering.</p>
+  <pre>
+.site-header-content,
+.site-content {
+  max-width: 960px;
+  margin: 20px auto;
+}
+  </pre>
+</div>
+
+<div class="section">
+  <h2>Advanced selectors</h2>
+
+  <p>There are plenty of powerful selectors in modern CSS so we can make sure that we have the tools for selecting just the elements we want. Here are a few examples of things we can do.</p>
+
+  <h4>Using last child to remove the bottom border from the last section</h4>
+
+  <pre>
+<i>.section {
+  border-bottom: 1px solid $border-color;</i>
+
+  &:last-child {
+    border-bottom: 0 none;
+  }
+<i>}</i>
+  </pre>
+
+  <h4>Attribute selectors</h4>
+
+  <p class="example" data-whatever="example">I have an attribute set of <i>data-whatever="example"</i></p>
+
+  <pre>
+[data-whatever] {
+  color: $brand-color;
+}
+  </pre>
+
+  <p>To learn many more advanced selectors, have a go at the <a href="https://flukeout.github.io/" target="_blank" rel="noopener noreferrer">CSS Diner</a> game later.</p>
+</div>
+
+<div class="section">
+  <h2>::before &amp; ::after pseudo elements</h2>
+  <p>We can use the before and after elements in order to inject content (it must be simple content, no HTML tags) into our page. Because this content is added by the CSS styles rather than being an integral part of the page, it is best practice to only use this to add decorative elements.</p>
+  <pre>
+<i>h1 {
+  text-align: center;
+  font-size: 42px;
+
+  @media  #{$larger-screens} {
+    font-size: 52px;
+    text-align: left;
+  }</i>
+
+  &::before {
+    content: '';
+    width: 50px;
+    height: 60px;
+    display: inline-block;
+    background: url(https://summeroftech.co.nz/wp-content/uploads/2017/02/sot-tech-icon-1-100x120.png);
+    background-size: 100% auto;
+    margin-right: 10px;
+    position: relative;
+    bottom: -5px;
+  }
+<i>}</i>
+  </pre>
+  <p>CSS Tricks has a nice article about <a href="https://css-tricks.com/pseudo-element-roundup/" target="_blank" rel="noopener noreferrer">A Whole Bunch of Amazing Stuff Pseudo Elements Can Do</a>.</p>
+</div>
+
+<div class="section">
+  <h2>Flexbox</h2>
+
+  <p>The excellent <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener noreferrer">Complete Guide to Flexbox</a> can help you look up the different properties that are available.</p>
+
+  <p>Flexbox provides better tooling for layouts compared to just using display properties or float. Here we use flexbox to space our our three items equally, and the center them vertically in their box.</p>
+
+  <pre>
+.flexbox-example {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  </pre>
+
+  <div class="example flexbox-example">
+    <div>one</div>
+    <div>two</div>
+    <div>three</div>
+  </div>
+
+  <p>To learn more about flexbox, have a go at the <a href="https://flexboxfroggy.com/" target="_blank" rel="noopener noreferrer">Flexbox Froggy</a> game later.</p>
+</div>
+
+<div class="section">
+  <h2>CSS Grids</h2>
+
+  <p>Flexbox gives up great layout tools when we're considering one row of content at a time, but it doesn't give us full control over rows and columns. CSS Grid is quite a <a href="http://caniuse.com/#feat=css-grid" target="_blank" rel="noopener noreferrer">new feature</a> that does give us that ability.</p>
+
+  <p>If we wanted to split our example below up into a header, main column and sidebar, we can do so.</p>
+
+  <div class="example grid-container">
+    <div class="grid-header">grid-header</div>
+    <div class="grid-content">grid-content</div>
+    <div class="grid-sidebar">grid-sidebar</div>
+  </div>
+
+  <pre>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto 30%;
+  grid-template-rows: 50px auto;
+
+  .grid-header {
+    background-color: red;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .grid-content {
+    background-color: aqua;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .grid-sidebar {
+    background-color: yellow;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+}
+  </pre>
+
+  <p>To learn more about CSS Grids, have a go at the <a href="http://cssgridgarden.com/" target="_blank" rel="noopener noreferrer">CSS Grid Garden</a> game later.</p>
+</div>
+
+<div class="section">
+  <h2>CSS transitions</h2>
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank" rel="noopener noreferrer">CSS transitions</a> are a simple form of animation. MDN has a list of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions#Which_CSS_properties_are_animatable" target="_blank" rel="noopener noreferrer">which CSS properties can be transitioned</a>.</p>
+  <p>To use transitions, we first need to set up what the styles should look like at the beginning, and also what they should look like when the transition has finished - this is often differentiated by adding a class with JavaScript, but in our case we'll use the <i>:hover</i> pseudoclass.
+  </p>
+  <pre>
+.animation-example {
+  border: 0;
+  padding: 15px 20px;
+  width: 33%;
+
+  &.one:hover {
+    background-color: $brand-color;
+  }
+
+  &.two:hover {
+    font-weight: bold;
+  }
+
+  &.three:hover {
+    font-weight: bold;
+    background-color: $brand-color;
+    color: #FFFFFF;
+  }
+}
+  </pre>
+  <p class="example">
+    <button class="animation-example one">Hover</button><!--
+    --><button class="animation-example two">Hover</button><!--
+    --><button class="animation-example three">Hover</button>
+  </p>
+  <p>Now the only thing we need to do to make that transition, is to add the <i>transition</i> property and define a time delay.</p>
+  <pre>
+<i>.animation-example {
+  border: 0;
+  padding: 15px 20px;
+  width: 33%;</i>
+  transition: 0.5s;
+
+  <i>&.one:hover {</i>
+  </pre>
+</div>
+
+<div class="section">
+  <h2>Other stuff</h2>
+
+  <p>That's our lot for this evening, but if you found this interesting and you're keen to learn more, here's some links to useful things.</p>
+
+  <ul>
+    <li><a href="https://www.meetup.com/WellingtonCSS/" target="_blank" rel="noopener noreferrer">Wellington CSS Meetup</a></li>
+    <li><a href="https://www.smashingmagazine.com/tag/css/" target="_blank" rel="noopener noreferrer">Smashing Magazine</a></li>
+    <li><a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer">CSS Tricks</a></li>
+    <li><a href="https://webfieldmanual.com/code.html" target="_blank" rel="noopener noreferrer">Web Field Manual</a></li>
+  </ul>
+</div>
+
+</div>
