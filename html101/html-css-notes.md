@@ -1,4 +1,19 @@
-# Summer of Tech Notes - HTML & CSS 101
+# HTML and CSS Notes
+Kevin Cartwright
+
+* Selector
+http://stackoverflow.com/questions/1204275/what-does-an-asterisk-do-in-a-css-selector
+	Grabs all of the elements within that selector..
+
+:before, :after
+http://stackoverflow.com/questions/32805670/what-does-before-and-after-do-in-css
+	Puts CSS rules BEFORE and AFTER content of a given selector.
+
+Guide to CSS Flexbox
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+
+## Summer of Tech Notes - HTML & CSS 101
 HTML and CSS 101 - 30/05/2017
 Jen Zajac (#jenofdoom)
 
