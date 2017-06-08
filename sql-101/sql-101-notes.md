@@ -1,4 +1,4 @@
-# Summer of Tech Notes
+# Summer of Tech Notes - SQL 101
 SQL 101 - 01/06/2017
 
 

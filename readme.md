@@ -7,4 +7,7 @@ This is the personal git repo of Kevin Cartwright, for Summer of Tech 2017.
 Notes from Jen Zajak, HTML CSS 101.
 
 ## SQL 101
-Notes from ..., SQL 101.
+Notes from Matthew Rollitt, SQL 101.
+
+## Cloud 101
+Notes from Richard Busby, Cloud 101

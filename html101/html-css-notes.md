@@ -1,4 +1,4 @@
-# Summer of Tech Notes
+# Summer of Tech Notes - HTML & CSS 101
 HTML and CSS 101 - 30/05/2017
 Jen Zajac (#jenofdoom)
 
