@@ -8,6 +8,7 @@ Notes from Jen Zajak, HTML CSS 101.
 
 ## SQL 101
 Notes from Matthew Rollitt, SQL 101.
+Notes from Lynda.com, 'SQL Essential Training.'
 
 ## Cloud 101
 Notes from Richard Busby, Cloud 101
