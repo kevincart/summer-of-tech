@@ -12,3 +12,6 @@ Notes from Lynda.com, 'SQL Essential Training.'
 
 ## Cloud 101
 Notes from Richard Busby, Cloud 101
+
+## Network Security 101
+Notes from Kate Pearce, @secvalve, Cisco.
