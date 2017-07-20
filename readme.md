@@ -1,5 +1,7 @@
 # Kevin Cartwright - Summer of Tech 2017
-This is the personal git repo of Kevin Cartwright, for Summer of Tech 2017.
+This is the personal git repo of Kevin Cartwright.
+I started this repo to store notes for Summer of Tech 2017.
+I have also added notes from independent study in SQL, Node, HTML, and CSS on my own time.
 
 - Kevin is at Kevincart@gmail.com
 
@@ -15,3 +17,6 @@ Notes from Richard Busby, Cloud 101
 
 ## Network Security 101
 Notes from Kate Pearce, @secvalve, Cisco.
+
+## Security 101
+Notes from 
