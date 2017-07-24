@@ -4,6 +4,9 @@ SQL 101 - 01/06/2017
 These are Kevin Cartwright's Notes
 
 # SQLLite 101.
+These are my personal SQL notes, basic data manipulation.
+For more complex concepts see SQL-beyond-notes.md
+===
 From Summer of Tech SQL 101, and Lynda.com 'SQL Essential Training.'
 
 ## SELECT Statement:
