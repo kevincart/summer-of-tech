@@ -25,3 +25,9 @@ Notes from Aura Info Sec Team.
 
 ## Git 101
 Notes from the author about Git.
+
+## Python 101
+Notes from the author about Python.
+
+## Javascript 101
+Notes from the author about Javascript.
