@@ -1,9 +1,11 @@
 # Kevin Cartwright - Summer of Tech 2017
 This is the personal git repo of Kevin Cartwright.
 I started this repo to store notes for Summer of Tech 2017.
-I have also added notes from independent study in SQL, Node, HTML, and CSS on my own time.
+I have also added notes from independent study in SQL, Node, HTML, and other subjects on my own time.
 
-- Kevin is at Kevincart@gmail.com
+Kevin can be reached at
+- Kevincart@gmail.com
+- www.github.com/kevincart
 
 ## HTML + CSS 101
 Notes from Jen Zajak, HTML CSS 101.
@@ -19,4 +21,4 @@ Notes from Richard Busby, Cloud 101
 Notes from Kate Pearce, @secvalve, Cisco.
 
 ## Security 101
-Notes from 
+Notes from Aura Info Sec Team.
