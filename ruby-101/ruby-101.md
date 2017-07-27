@@ -12,3 +12,9 @@ http://docs.ruby-doc.com/docs/ProgrammingRuby/
 
 # Code Notes
 - Ruby is a true Object Oriented Language.
+- Elegant and powerful, Ruby steps aside and lets you focus on problems and solutions, not complex coding questions.
+- Natural language, extensible and powerful, this language is used widely in Web Application Development, Desktop Development, UNIX scripting, and so forth.
+
+# Naming
+- Local -  Global  -  Instance  -  Class   -   Constants and Class
+- name	-  $debug	 - @name	    -  @@total -	  PI
