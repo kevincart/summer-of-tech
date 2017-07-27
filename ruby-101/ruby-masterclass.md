@@ -1,6 +1,7 @@
 # Summer of Tech 2017
 Ruby Masterclass with Powershop
 Andy at Flux Federation (Formally Powershop)
+@newportandy
 
 ### Contents
 1. Some talk about Dynamic Languages
@@ -52,3 +53,4 @@ Andy at Flux Federation (Formally Powershop)
 - Rails Girls
 - Wellington Ruby
 - KiwiRuby conference
+- Why's Poignant Guide to Ruby///
