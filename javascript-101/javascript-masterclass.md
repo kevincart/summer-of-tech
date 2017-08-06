@@ -18,3 +18,7 @@ https://github.com/tc39/proposals
 - npm growing very fast
 - dependencies can be problematic (look up Leftpad..)
 - active communities: meetup/wellingtonjs , github.com/javascript-nz
+
+## Resources for learning React (From ME)
+- https://facebook.github.io/react/docs/react-dom-server.html
+- http://yeoman.io/
